@@ -2,11 +2,16 @@
   <p>
     <strong>Title:</strong>
     <%= user_post.title %>
+    <h4>Posted by <%= user_post.user.email %></h4>
   </p>
-
+                              
   <p>
     <strong>Body:</strong>
     <%= user_post.body %>
   </p>
 
+    <p>
+    <strong>Views:</strong>
+    <%= pluralize(user_post.view,"view") %>
+  </p>
 </div>
