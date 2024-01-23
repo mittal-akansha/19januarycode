@@ -9,6 +9,7 @@ class UserPostsController < ApplicationController
   # GET /user_posts/1 or /user_posts/1.json
   def show
     @user_post.update(view: @user_post.view + 1)
+    @comments=@user_post.comments.order(created_at: :desc)
   end
 
   # GET /user_posts/new
