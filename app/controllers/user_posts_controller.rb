@@ -1,13 +1,14 @@
 class UserPostsController < ApplicationController
   before_action :set_user_post, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: %i[show index]
   # GET /user_posts or /user_posts.json
   def index
-    @user_posts = UserPost.all
+    @user_posts = UserPost.all.order(created_at: :desc)
   end
 
   # GET /user_posts/1 or /user_posts/1.json
   def show
+    @user_post.update(view: @user_post.view + 1)
   end
 
   # GET /user_posts/new
@@ -22,6 +23,7 @@ class UserPostsController < ApplicationController
   # POST /user_posts or /user_posts.json
   def create
     @user_post = UserPost.new(user_post_params)
+    @user_post.user = current_user
 
     respond_to do |format|
       if @user_post.save

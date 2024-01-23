@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+john = User.create(email: 'john@doe.com',
+  password: 'password',
+  password_confirmation: 'password'
+)
+
+10.times do |i|
+  UserPost.create!(
+    title: "Post #{i + 1}",
+    body: "This is the content of post #{i + 1}.",
+    user_id: User.first.id
+    # Add other attributes as needed
+  )
+end

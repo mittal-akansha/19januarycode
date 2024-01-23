@@ -10,8 +10,15 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/user_posts">Posts</a>
+            <%= link_to "Blog" ,  user_posts_path ,  class:"nav-link active"%>
         </li>
-      </ul>
+        <li class="nav-item">
+           <a class="nav-link active" aria-current="page" href="/about">About</a>
+        </li>
+      </ul> 
+    </div>
+    <ul>
+    <%= render "user/session_manager"%>
+    </ul>
   </div>
 </nav>
