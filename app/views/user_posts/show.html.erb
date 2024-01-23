@@ -7,4 +7,12 @@
   <%= link_to "Back to user posts", user_posts_path %>
 
   <%= button_to "Destroy this user post", @user_post, method: :delete %>
+</div><br>
+ 
+ <h4>Comments</h4>
+<div class="container">
+  <%= render "comments/form" , user_post: @user_post  %>
+  <% @comments.each do |comment|%>
+    <%= render "comments/comment" , user_post: @user_post, comment: comment%>
+  <% end %>
 </div>
