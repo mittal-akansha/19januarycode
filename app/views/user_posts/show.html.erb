@@ -11,7 +11,7 @@
  
  <h4>Comments</h4>
 <div class="container">
-  <%= render "comments/form" , user_post: @user_post  %>
+  <%= render "comments/form" , user_post: @user_post, comment: @user_post.comments.build , submit_label: "Reply"%>
   <% @comments.each do |comment|%>
     <%= render "comments/comment" , user_post: @user_post, comment: comment%>
   <% end %>

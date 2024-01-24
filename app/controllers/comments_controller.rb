@@ -19,17 +19,17 @@ class CommentsController < ApplicationController
     redirect_to user_post_path(@user_post)
   end
 
-  # def update
-  #   @comment = @user_post.comments.find(params[:id])
+  def update
+    @comment = @user_post.comments.find(params[:id])
 
-  #   respond_to do |format|
-  #     if @comment.update(comment_params)
-  #       format.html { redirect_to user_post_url(@post), notice: 'Comment has been updated' }
-  #     else
-  #       format.html { redirect_to user_post_url(@post), alert: 'Comment was not updated!' }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to user_post_url(@user_post), notice: 'Comment has been updated' }
+      else
+        format.html { redirect_to user_post_url(@user_post), alert: 'Comment was not updated!' }
+      end
+    end
+  end
 
   private
 
