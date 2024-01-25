@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
   get 'users/profile'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-
+  resources :users
   resources :user_posts do 
     resources :comments
   end 
@@ -15,4 +16,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  resources :rooms do
+    resources :messages
+  end
 end
