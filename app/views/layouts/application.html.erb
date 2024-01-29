@@ -25,8 +25,11 @@
 
   <body>
   <header>
+
+<% if flash[:notice].present? %>
+<%= render "layouts/flash" ,flash: flash[:notice] %>
+<% end %>
    <%= render "layouts/navbar"%>
-   <%= render "layouts/alerts"%>
   </header>
   <div class= "container">
   <main>
